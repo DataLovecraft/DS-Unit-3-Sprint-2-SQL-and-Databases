@@ -1,11 +1,12 @@
 import sqlite3
-
-'''
-part 2 - The Northwind Database
-'''
-
 conn = sqlite3.connect('northwind_small.sqlite3')
 curs = conn.cursor()
+
+'''
+*******************************
+part 2 - The Northwind Database
+*******************************
+'''
 
 # What are the ten most expensive items (per unit price) in the database and their suppliers?
 print('What are the ten most expensive items (per unit price) in the database?')
@@ -35,7 +36,9 @@ print('\n'.join([str(row) for row in curs]), '\n')
 print('='*80)
 
 '''
+***********************************
 Part 3 - Sailing the Northwind Seas
+***********************************
 '''
 
 # What are the ten most expensive items (per unit price) in the database and their suppliers?
@@ -62,6 +65,7 @@ curs.execute('SELECT CategoryID, CategoryName, '
              'ORDER BY numProducts DESC '
              'LIMIT 1;')
 print(curs.fetchall(), '\n')
+print('='*80)
 
 
 # Who's the employee with the most territories?

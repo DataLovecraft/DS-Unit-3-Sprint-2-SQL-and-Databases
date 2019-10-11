@@ -63,3 +63,20 @@ y_result = curs.execute(y_query )
 print('How many unique values of y are there?')
 print('There are', y_result.fetchall()[0][0], 'unique values of y.')
 print('='*80)
+
+
+
+'''
+OUTPUT:
+
+Count how many rows you have
+There are 3 rows in the table.
+================================================================================
+How many rows are there where both x and y are at least 5?
+There are 2 rows where both x and y are at least 5.
+================================================================================
+How many unique values of y are there?
+There are 2 unique values of y.
+================================================================================
+
+'''

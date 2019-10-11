@@ -79,3 +79,54 @@ curs.execute('SELECT Employee.Id, Title, FirstName, LastName, numTerritories '
              'LIMIT 1) '
              'JOIN Employee ON EmployeeID = Employee.Id;')
 print(curs.fetchall(), '\n')
+
+
+
+'''
+OUTPUT:
+
+What are the ten most expensive items (per unit price) in the database?
+(38, 'Côte de Blaye', 263.5)
+(29, 'Thüringer Rostbratwurst', 123.79)
+(9, 'Mishi Kobe Niku', 97)
+(20, "Sir Rodney's Marmalade", 81)
+(18, 'Carnarvon Tigers', 62.5)
+(59, 'Raclette Courdavault', 55)
+(51, 'Manjimup Dried Apples', 53)
+(62, 'Tarte au sucre', 49.3)
+(43, 'Ipoh Coffee', 46)
+(28, 'Rössle Sauerkraut', 45.6)
+
+================================================================================
+What is the average age of an employee at the time of their hiring?
+[(37.28344360787892,)]
+
+================================================================================
+How does the average age of employee at hire vary by city?
+('Kirkland', 28.588637919233403)
+('London', 32.82819986310746)
+('Redmond', 55.619438740588635)
+('Seattle', 39.77275838466804)
+('Tacoma', 40.48459958932238)
+
+================================================================================
+What are the ten most expensive items (per unit price) in the database and their suppliers?
+(18, 'Aux joyeux ecclésiastiques', 38, 'Côte de Blaye', 263.5)
+(12, 'Plutzer Lebensmittelgroßmärkte AG', 29, 'Thüringer Rostbratwurst', 123.79)
+(4, 'Tokyo Traders', 9, 'Mishi Kobe Niku', 97)
+(8, 'Specialty Biscuits, Ltd.', 20, "Sir Rodney's Marmalade", 81)
+(7, 'Pavlova, Ltd.', 18, 'Carnarvon Tigers', 62.5)
+(28, 'Gai pâturage', 59, 'Raclette Courdavault', 55)
+(24, "G'day, Mate", 51, 'Manjimup Dried Apples', 53)
+(29, "Forêts d'érables", 62, 'Tarte au sucre', 49.3)
+(20, 'Leka Trading', 43, 'Ipoh Coffee', 46)
+(12, 'Plutzer Lebensmittelgroßmärkte AG', 28, 'Rössle Sauerkraut', 45.6)
+
+================================================================================
+What is the largest category (by number of unique products in it)?
+[(3, 'Confections', 13)]
+
+================================================================================
+Who's the employee with the most territories?
+[(7, 'Sales Representative', 'Robert', 'King', 10)]
+'''

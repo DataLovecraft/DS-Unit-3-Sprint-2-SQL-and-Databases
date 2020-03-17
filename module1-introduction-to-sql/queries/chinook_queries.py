@@ -1,35 +1,33 @@
-
 import os
 import sqlite3
-from pprint import pprint
 
-DB_FILEPATH = os.path.join(os.path.dirname(__file__), "..", "data", "chinook.db")
+# Path to database
+DB_FILEPATH = os.path.join(os.path.dirname(__file__), "../data/", "chinook.db")
 
+
+# First we create a `connection` object that represents the database
 conn = sqlite3.connect(DB_FILEPATH)
-print("CONNECTION:", type(conn)) #> <class 'sqlite3.Connection'>
+print('CONNECTION:', conn)
 
-# h/t: https://kite.com/python/examples/3884/sqlite3-use-a-row-factory-to-access-values-by-column-name
-conn.row_factory = sqlite3.Row
+# Then we create a `cursor` object and call its `excecute()` method to
+# perform SQL commands
+c = conn.cursor()
+print('CURSOR', c)
 
-curs = conn.cursor()
-print("CURSOR:", type(curs)) #> <class 'sqlite3.Cursor'>
+query = """
+SELECT
+    trackid,
+    name,
+    composer,
+    unitprice
+FROM
+    tracks;
+"""
+result = c.execute(query).fetchall()
+print("RESULTS: ", result)
 
-queries = [
-    #"SELECT COUNT(customerId) FROM customers;",
-    "SELECT * FROM customers LIMIT 3;"
-]
 
-for query in queries:
-    print("--------------")
-    print(f"QUERY: '{query}'")
 
-    #obj = curs.execute(query)
-    #print("OBJ", type(obj))
-    #print(obj) #> <class 'sqlite3.Cursor'>
 
-    results = curs.execute(query).fetchall()
-    print("RESULTS:", type(results))
-    print(results)
 
-    print(type(results[0])) #> type(results[0])
-    breakpoint()
+

@@ -18,10 +18,12 @@ query = """
 SELECT
     trackid,
     name,
-    composer,
-    unitprice
+    bytes
 FROM
-    tracks;
+    tracks
+ORDER BY
+    bytes DESC
+LIMIT 10;
 """
 result = c.execute(query).fetchall()
 print("RESULTS: ", result)
